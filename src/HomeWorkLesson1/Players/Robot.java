@@ -13,10 +13,17 @@ public class Robot extends Player implements Running, Jumping {
 
     @Override
     public void jump(Barrier barrier) {
+        if(barrier.getHeightJump() > this.getJumpRes()) {
+            System.out.println("Робот " + this.getName() + " прыгнул и подвернул себе конечность.");
+        }
+        else System.out.println("Робот " + this.getName() + " перепрыгнул и мигнул индикаторами.");
     }
 
     @Override
     public void run(Barrier barrier) {
-
+        if(barrier.getLengthRun() > this.getRunRes()) {
+            System.out.println("Робот " + this.getName() + " осался без топлива и не смог добежать.");
+        }
+        else System.out.println("Робот " + this.getName() + " пробежал и подал звуковой сигнал.");
     }
 }

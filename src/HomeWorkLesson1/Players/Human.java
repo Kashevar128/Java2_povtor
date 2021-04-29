@@ -15,15 +15,23 @@ public class Human extends Player implements Running, Swimming, Jumping {
 
     @Override
     public void jump(Barrier barrier) {
+            if(barrier.getHeightJump() > this.getJumpRes()) {
+                System.out.println("Человек " + this.getName() + " не смог перепрыгнуть и сел передохнуть.");
+            }
+            else System.out.println("Человек " + this.getName() + " перепрыгнул стену и пыхтя побежал дальше.");
     }
 
     @Override
     public void run(Barrier barrier) {
-
+        if(barrier.getLengthRun() > this.getRunRes()) {
+            System.out.println("Человек " + this.getName() + " не смог пробежать остановился и похромал к обочине.");
+        }
     }
 
     @Override
     public void swim(Barrier barrier) {
-
+        if(barrier.getLengthSwim() > this.getSwimRes()) {
+            System.out.println("Человек " + this.getName() + " пускает пузыри.");
+        }
     }
 }

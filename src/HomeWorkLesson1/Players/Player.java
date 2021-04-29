@@ -42,5 +42,10 @@ public class Player {
         return (int) (Math.random() * max) + min;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getName() + ":\n" + "Имя: " + getName() + "\n" + "Дальность бега: " + getRunRes() + "\n" +
+                "Высота прыжка: " + getJumpRes() + "\n" + "Дальность плавания: " + getSwimRes();
 
+    }
 }
