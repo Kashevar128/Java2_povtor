@@ -1,10 +1,8 @@
 package HomeWorkLesson1.Players;
 
 import HomeWorkLesson1.Barriers.Barrier;
-import HomeWorkLesson1.Interfaces.Jumping;
-import HomeWorkLesson1.Interfaces.Running;
 
-public class Robot extends Player implements Running, Jumping {
+public class Robot extends Player {
     public Robot(String name) {
         super(name);
         setJumpRes(rnd(7, 10));
@@ -12,18 +10,30 @@ public class Robot extends Player implements Running, Jumping {
     }
 
     @Override
-    public void jump(Barrier barrier) {
-        if(barrier.getHeightJump() > this.getJumpRes()) {
+    public boolean jump(Barrier barrier) {
+        if (barrier.getHeightJump() > this.getJumpRes()) {
             System.out.println("Робот " + this.getName() + " прыгнул и подвернул себе конечность.");
+            return false;
+        } else {
+            System.out.println("Робот " + this.getName() + " перепрыгнул и мигнул индикаторами.");
+            return true;
         }
-        else System.out.println("Робот " + this.getName() + " перепрыгнул и мигнул индикаторами.");
     }
 
     @Override
-    public void run(Barrier barrier) {
-        if(barrier.getLengthRun() > this.getRunRes()) {
-            System.out.println("Робот " + this.getName() + " осался без топлива и не смог добежать.");
+    public boolean run(Barrier barrier) {
+        if (barrier.getLengthRun() > this.getRunRes()) {
+            System.out.println("Робот " + this.getName() + " остался без топлива и не смог добежать.");
+            return false;
+        } else {
+            System.out.println("Робот " + this.getName() + " пробежал и подал звуковой сигнал.");
+            return true;
         }
-        else System.out.println("Робот " + this.getName() + " пробежал и подал звуковой сигнал.");
+    }
+
+    @Override
+    public boolean swim(Barrier barrier) {
+        System.out.println("Робот вырубился и утонул.");
+        return false;
     }
 }

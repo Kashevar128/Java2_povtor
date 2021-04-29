@@ -1,10 +1,8 @@
 package HomeWorkLesson1.Players;
 
 import HomeWorkLesson1.Barriers.Barrier;
-import HomeWorkLesson1.Interfaces.Jumping;
-import HomeWorkLesson1.Interfaces.Running;
 
-public class Cat extends Player implements Running, Jumping {
+public class Cat extends Player {
     public Cat(String name) {
         super(name);
         setJumpRes(rnd(1, 4));
@@ -12,18 +10,30 @@ public class Cat extends Player implements Running, Jumping {
     }
 
     @Override
-    public void jump(Barrier barrier) {
-        if(barrier.getHeightJump() > this.getJumpRes()) {
+    public boolean jump(Barrier barrier) {
+        if (barrier.getHeightJump() > this.getJumpRes()) {
             System.out.println("Кот " + this.getName() + " не смог перепрыгнуть и царапает стенку.");
+            return false;
+        } else {
+            System.out.println("Кот " + this.getName() + " перепрыгнул стену и задрал хвост трубой!");
+            return true;
         }
-        else System.out.println("Кот " + this.getName() + " перепрыгнул стену и задрал хвост трубой!");
     }
 
     @Override
-    public void run(Barrier barrier) {
-        if(barrier.getLengthRun() > this.getRunRes()) {
-            System.out.println("Кот" + this.getName() + " не смог пробежать и валяется кверху пузом.");
+    public boolean run(Barrier barrier) {
+        if (barrier.getLengthRun() > this.getRunRes()) {
+            System.out.println("Кот " + this.getName() + " не смог пробежать и валяется кверху пузом.");
+            return false;
+        } else {
+            System.out.println("Кот " + this.getName() + " пробежал высунув язык.");
+            return true;
         }
-        else System.out.println("Кот" + this.getName() + " пробежал высунув язык.");
+    }
+
+    @Override
+    public boolean swim(Barrier barrier) {
+        System.out.println("Иди на хрен! Я кот! Я не умею плавать!");
+        return false;
     }
 }

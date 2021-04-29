@@ -1,11 +1,9 @@
 package HomeWorkLesson1.Players;
 
 import HomeWorkLesson1.Barriers.Barrier;
-import HomeWorkLesson1.Interfaces.Jumping;
-import HomeWorkLesson1.Interfaces.Running;
-import HomeWorkLesson1.Interfaces.Swimming;
 
-public class Dog extends Player implements Running, Swimming, Jumping {
+
+public class Dog extends Player {
     public Dog(String name) {
         super(name);
         setJumpRes(rnd(1, 2));
@@ -14,26 +12,35 @@ public class Dog extends Player implements Running, Swimming, Jumping {
     }
 
     @Override
-    public void jump(Barrier barrier) {
-        if(barrier.getHeightJump() > this.getJumpRes()) {
+    public boolean jump(Barrier barrier) {
+        if (barrier.getHeightJump() > this.getJumpRes()) {
             System.out.println("Пес " + this.getName() + " не смог перепрыгнуть и скулит рядом со стенкой.");
+            return false;
+        } else {
+            System.out.println("Пес " + this.getName() + " перепрыгнул стену и лая побежал дальше");
+            return true;
         }
-        else System.out.println("Пес " + this.getName() + " перепрыгнул стену и лая побежал дальше");
     }
 
     @Override
-    public void run(Barrier barrier) {
-        if(barrier.getLengthRun() > this.getRunRes()) {
-            System.out.println("Пес" + this.getName() + " не смог пробежать и лежит дрыгая лапами.");
+    public boolean run(Barrier barrier) {
+        if (barrier.getLengthRun() > this.getRunRes()) {
+            System.out.println("Пес " + this.getName() + " не смог пробежать и лежит дрыгая лапами.");
+            return false;
+        } else {
+            System.out.println("Пес " + this.getName() + " пробежал, выкусывая блох на ходу.");
+            return true;
         }
-        else System.out.println("Пес" + this.getName() + " пробежал, выкусывая блох на ходу.");
     }
 
     @Override
-    public void swim(Barrier barrier) {
+    public boolean swim(Barrier barrier) {
         if (barrier.getLengthSwim() > this.getSwimRes()) {
             System.out.println("Пес " + this.getName() + " захлебнулся водой.");
+            return false;
+        } else {
+            System.out.println("Пес " + this.getName() + " переплыл и отряхнулся от воды.");
+            return true;
         }
-        else System.out.println("Пес " + this.getName() + " переплыл и отряхнулся от воды.");
     }
 }

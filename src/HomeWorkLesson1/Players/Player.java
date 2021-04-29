@@ -1,6 +1,8 @@
 package HomeWorkLesson1.Players;
 
-public class Player {
+import HomeWorkLesson1.Barriers.Barrier;
+
+public abstract class Player {
     private final String name;
     private int runRes;
     private int jumpRes;
@@ -37,6 +39,10 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+
+    public abstract boolean run(Barrier barrier);
+    public abstract boolean swim(Barrier barrier);
+    public abstract boolean jump(Barrier barrier);
 
     public static int rnd(int min, int max) {
         return (int) (Math.random() * max) + min;

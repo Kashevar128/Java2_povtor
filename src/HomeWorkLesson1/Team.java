@@ -12,7 +12,7 @@ public class Team {
 
     public Team(String name) {
         this.name = name;
-        this.teamComposition = new ArrayList<Player>();
+        this.teamComposition = new ArrayList<>();
         teamComposition.add(new Cat("Барсик"));
         teamComposition.add(new Dog("Шарик"));
         teamComposition.add(new Human("Чел"));
