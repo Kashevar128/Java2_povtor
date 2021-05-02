@@ -17,7 +17,7 @@ public class Dog extends Player {
             System.out.println("Пес " + this.getName() + " не смог перепрыгнуть и скулит рядом со стенкой.");
             return false;
         } else {
-            System.out.println("Пес " + this.getName() + " перепрыгнул стену и лая побежал дальше");
+            System.out.println("Пес " + this.getName() + " перепрыгнул стену и лая побежал дальше.");
             return true;
         }
     }

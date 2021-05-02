@@ -3,7 +3,6 @@ package HomeWorkLesson1;
 import HomeWorkLesson1.Players.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Team {
@@ -27,9 +26,13 @@ public class Team {
         return teamComposition;
     }
 
-    public void showPlayers() {
+    public void showPlayers(Boolean flag) {
+        if(flag) {
+            System.out.println("СОСТАВ КОМАНДЫ " + this.getName());
+        }
         for (Player player : teamComposition) {
             System.out.println(player.toString() + "\n");
         }
     }
+
 }

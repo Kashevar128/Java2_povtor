@@ -5,9 +5,10 @@ public class Test {
         Team team = new Team("Затупки");
         Course course = new Course();
 
-        team.showPlayers();
+        course.info();
+        team.showPlayers(true);
         course.start(team);
         System.out.println("\nФИНИШИРОВАЛИ:");
-        team.showPlayers();
+        team.showPlayers(false);
     }
 }

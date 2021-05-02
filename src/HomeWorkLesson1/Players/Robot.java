@@ -36,4 +36,5 @@ public class Robot extends Player {
         System.out.println("Робот вырубился и утонул.");
         return false;
     }
+
 }

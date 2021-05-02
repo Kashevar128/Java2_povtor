@@ -36,4 +36,6 @@ public class Cat extends Player {
         System.out.println("Иди на хрен! Я кот! Я не умею плавать!");
         return false;
     }
+
+
 }

@@ -20,17 +20,17 @@ public class Course {
     }
 
     public void start(Team team) {
-        for(Barrier barrier : obstacles) {
-            String brStr = barrier.getClass().getName();
-
-            if(brStr.equals(Lake.class.getName())) {
-                team.getTeamComposition().removeIf(player -> !player.swim(barrier));
-            }
-            else if (brStr.equals(Treadmill.class.getName())) {
-                team.getTeamComposition().removeIf(player -> !player.run(barrier));
-            }
-            else team.getTeamComposition().removeIf(player -> !player.jump(barrier));
+        for (Barrier barrier : obstacles) {
+            team.getTeamComposition().removeIf(player -> !player.movement(barrier));
         }
+    }
+
+    public void info() {
+        System.out.println("ПАРАМЕТРЫ ПОЛОСЫ ПРЕПЯТСТВИЙ:");
+        for(Barrier barrier : obstacles) {
+            System.out.println(barrier);
+        }
+        System.out.println();
     }
 }
 

@@ -1,5 +1,4 @@
 package HomeWorkLesson1.Players;
-
 import HomeWorkLesson1.Barriers.Barrier;
 
 public abstract class Player {
@@ -40,9 +39,15 @@ public abstract class Player {
         this.name = name;
     }
 
-    public abstract boolean run(Barrier barrier);
-    public abstract boolean swim(Barrier barrier);
-    public abstract boolean jump(Barrier barrier);
+    public boolean movement(Barrier barrier) {
+        return barrier.takeMove(this);
+    }
+
+    abstract public boolean jump(Barrier barrier);
+
+    abstract  public boolean run(Barrier barrier);
+
+    abstract public boolean swim(Barrier barrier);
 
     public static int rnd(int min, int max) {
         return (int) (Math.random() * max) + min;

@@ -1,20 +1,22 @@
 package HomeWorkLesson1.Barriers;
 
-public class Barrier {
+import HomeWorkLesson1.Players.Player;
+
+public abstract class Barrier {
     private int heightJump;
-    private int lenghtRun;
-    private int lenghtSwim;
+    private int lengthRun;
+    private int lengthSwim;
 
     public void setHeightJump(int heightJump) {
         this.heightJump = heightJump;
     }
 
     public void setLengthRun(int lengthRun) {
-        this.lenghtRun = lengthRun;
+        this.lengthRun = lengthRun;
     }
 
     public void setLengthSwim(int lengthSwim) {
-        this.lenghtSwim = lengthSwim;
+        this.lengthSwim = lengthSwim;
     }
 
     public int getHeightJump() {
@@ -22,10 +24,19 @@ public class Barrier {
     }
 
     public int getLengthRun() {
-        return lenghtRun;
+        return lengthRun;
     }
 
     public int getLengthSwim() {
-        return lenghtSwim;
+        return lengthSwim;
     }
+
+    public abstract String getInfo();
+
+    @Override
+    public String toString() {
+        return getInfo();
+    }
+
+    public abstract boolean takeMove(Player player);
 }
