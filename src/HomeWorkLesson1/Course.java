@@ -4,7 +4,7 @@ import HomeWorkLesson1.Barriers.Barrier;
 import HomeWorkLesson1.Barriers.Lake;
 import HomeWorkLesson1.Barriers.Treadmill;
 import HomeWorkLesson1.Barriers.Wall;
-import HomeWorkLesson1.Players.Player;
+
 
 import java.util.ArrayList;
 import java.util.List;
