@@ -10,6 +10,12 @@ public class TestMethods {
 
         thread_1.start();
         thread_2.start();
+
+//        Thread thread_3 = new Thread(new TheFirstAndSecondMethods().method_1);
+//        Thread thread_4 = new Thread(new TheFirstAndSecondMethods().method_2);
+//
+//        thread_3.start();
+//        thread_4.start();
     }
 }
 
